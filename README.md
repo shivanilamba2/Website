@@ -36,4 +36,23 @@ Then open http://localhost:8080
    git push -u origin main
    ```
 3. On GitHub: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / root**.
-4. To use a custom domain (e.g. shivlambda.com), add it under Settings → Pages and point your DNS at GitHub Pages.
+4. **Custom domain** — the `CNAME` file already contains `shivlambda.com`. In Settings → Pages, confirm the custom domain shows `shivlambda.com`.
+
+## Point shivlambda.com at GitHub Pages (Squarespace Domains)
+Doing this takes the Squarespace site offline at shivlambda.com, so do it once the GitHub site looks right at `https://<your-username>.github.io/shivlambda_site/`.
+
+1. Squarespace → **Domains → shivlambda.com → DNS settings**.
+2. Delete the Squarespace default records (the `@` A records pointing to 198.185.159.x / 198.49.23.x and the `www` CNAME to `ext-sq.squarespace.com`).
+3. Add these records:
+
+   | Host | Type | Data |
+   | --- | --- | --- |
+   | @ | A | 185.199.108.153 |
+   | @ | A | 185.199.109.153 |
+   | @ | A | 185.199.110.153 |
+   | @ | A | 185.199.111.153 |
+   | www | CNAME | `<your-username>.github.io` |
+
+   Leave any MX/email records alone.
+4. Wait for DNS to update (minutes to a few hours), then in GitHub Settings → Pages tick **Enforce HTTPS**.
+5. Recommended: verify the domain under your GitHub account (Settings → Pages → Verified domains) so no one else can claim it.
