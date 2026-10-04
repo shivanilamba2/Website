@@ -130,12 +130,22 @@ function reveals() {
     targets.forEach((t) => t.classList.add("is-in"));
     return;
   }
+  // A fully clipped .reveal-img has zero visible area, so the browser never reports it as
+  // intersecting. Watch its (unclipped) parent instead and reveal the child.
+  const revealFor = new Map();
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      if (!e.isIntersecting) return;
+      (revealFor.get(e.target) || []).forEach((t) => t.classList.add("is-in"));
+      io.unobserve(e.target);
     });
-  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
-  targets.forEach((t) => io.observe(t));
+  }, { rootMargin: "0px 0px -12% 0px", threshold: 0 });
+  targets.forEach((t) => {
+    const watched = t.classList.contains("reveal-img") ? t.parentElement : t;
+    if (!revealFor.has(watched)) revealFor.set(watched, []);
+    revealFor.get(watched).push(t);
+    io.observe(watched);
+  });
 }
 
 /* ---------- Parallax ---------- */
