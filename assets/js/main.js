@@ -6,7 +6,7 @@
 
 const SITE = {
   name: "shivlambda",
-  tagline: "Dance · Choreography · Classes",
+  tagline: "Choreographer ~ Director ~ Instructor ~ Entrepreneur",
   bookingUrl: "https://dnce.club/imgestudios",
   email: "shivlambda@gmail.com",
   instagram: "https://www.instagram.com/shivlambda/",

@@ -161,7 +161,12 @@ h1, h2, h3, h4, p { margin: 0; font-weight: var(--thin); }
   font-size: 18px; letter-spacing: .08em; font-weight: var(--light);
   white-space: nowrap;
 }
-.brand small { display: block; font-size: 10px; letter-spacing: .3em; text-transform: uppercase; opacity: .7; }
+.brand small {
+  display: block; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; opacity: .7;
+  white-space: normal; text-wrap: balance; line-height: 1.5; margin-top: 2px;
+}
+@media (max-width: 1180px) { .brand small { max-width: 30em; margin-inline: auto; } }
+@media (max-width: 860px)  { .brand small { max-width: 26em; margin-inline: 0; font-size: 9px; } }
 
 .menu-toggle {
   display: none; justify-self: end;
