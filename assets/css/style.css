@@ -225,7 +225,10 @@ h1, h2, h3, h4, p { margin: 0; font-weight: var(--thin); }
 .hero__media, .hero__media video, .hero__media img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
 }
-/* Shown until a hero video is added: slow drifting water gradient */
+/* The intro clip has dark pillarbox bars baked into its sides — zoom slightly past them */
+.hero__video { scale: 1.2; }
+
+/* Shown behind the hero media while it loads: slow drifting water gradient */
 .hero__water {
   position: absolute; inset: -20%;
   background:
