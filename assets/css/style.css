@@ -376,8 +376,13 @@ h1, h2, h3, h4, p { margin: 0; font-weight: var(--thin); }
 }
 .filter[aria-pressed="true"], .filter:hover { background: var(--deep-water); color: var(--sea-foam); border-color: var(--deep-water); }
 
-.masonry { columns: 3 320px; column-gap: var(--gutter); }
-.masonry .work { break-inside: avoid; margin-bottom: var(--gutter); display: block; }
+/* Row-ordered grid so the newest credits read first, left to right */
+.masonry {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(32px, 4vw, 56px) var(--gutter); align-items: start;
+}
+.masonry .work { display: block; }
+.masonry .work .media { aspect-ratio: 4 / 3; }
 .work .media { margin-bottom: 12px; }
 .work.is-hidden { display: none; }
 
