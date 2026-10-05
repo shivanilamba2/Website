@@ -1,4 +1,4 @@
-# shivlambda — dance portfolio site
+# shivlambda: dance portfolio site
 
 Static site (HTML/CSS/JS, no build step) for GitHub Pages.
 
@@ -36,7 +36,7 @@ Then open http://localhost:8080
    git push -u origin main
    ```
 3. On GitHub: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / root**.
-4. **Custom domain** — the `CNAME` file already contains `shivlambda.com`. In Settings → Pages, confirm the custom domain shows `shivlambda.com`.
+4. **Custom domain:** the `CNAME` file already contains `shivlambda.com`. In Settings → Pages, confirm the custom domain shows `shivlambda.com`.
 
 ## Point shivlambda.com at GitHub Pages (Squarespace Domains)
 Doing this takes the Squarespace site offline at shivlambda.com, so do it once the GitHub site looks right at `https://<your-username>.github.io/shivlambda_site/`.

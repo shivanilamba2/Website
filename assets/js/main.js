@@ -1,5 +1,5 @@
 /* ==========================================================================
-   shivlambda — site behaviour
+   shivlambda: site behaviour
    Shared header/footer, intro, scroll reveals, parallax, carousel,
    portfolio filters and lightbox. No dependencies.
    ========================================================================== */
