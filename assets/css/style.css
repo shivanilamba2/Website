@@ -386,8 +386,10 @@ h1, h2, h3, h4, p { margin: 0; font-weight: var(--thin); }
 .work .media { margin-bottom: 12px; }
 .work.is-hidden { display: none; }
 
-/* YouTube thumbnails are 4:3 with baked-in letterbox bars — crop them out */
-.media img[src*="i.ytimg.com"] { scale: 1.06; }
+/* Low-res YouTube thumbnails (hq/sd) are 4:3 with baked-in letterbox bars — zoom past them.
+   hqdefault cards sit in 4:3 boxes, so they need the full 4:3 → 16:9 zoom. */
+.media img[src*="i.ytimg.com"][src*="/sddefault"] { scale: 1.06; }
+.media img[src*="i.ytimg.com"][src*="/hqdefault"] { scale: 1.34; }
 
 /* Video thumbnail with a centred play button */
 .video-card { position: relative; display: block; }
