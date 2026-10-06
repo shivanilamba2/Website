@@ -288,6 +288,10 @@ h1, h2, h3, h4, p { margin: 0; font-weight: var(--thin); }
 .media--cinema { aspect-ratio: 21 / 9; }
 @media (max-width: 860px) { .media--cinema { aspect-ratio: 4 / 3; } }
 
+/* Logos (e.g. schools) sit whole on white instead of being cropped like photos */
+.media--logo { background: var(--white); }
+.media--logo img { object-fit: contain; padding: 12% 14%; }
+
 /* Placeholder until real images are dropped in */
 .media--ph {
   background:
